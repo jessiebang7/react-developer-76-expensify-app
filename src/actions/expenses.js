@@ -63,7 +63,7 @@ export const setExpenses = (expenses) => ({
   expenses
 });
 
-//export const startSetExpenses;
+//startSetExpenses;
 export const startSetExpenses = () => {
   return (dispatch) => {
     return database.ref('expenses').once('value')
@@ -77,5 +77,14 @@ export const startSetExpenses = () => {
         });
         dispatch(setExpenses(expenses));
      });
+  };
+};
+
+// startRemoveExpense
+export const startRemoveExpense = ({ id }) => {
+  return (dispatch) => {
+    return database.ref(`expenses/${id}`).set(null).then(() => {
+      dispatch(removeExpense({ id }));
+    });
   };
 };
