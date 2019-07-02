@@ -13,6 +13,8 @@ import getVisibleExpenses from './selectors/expenses';
 import { addExpense } from './actions/expenses';
 import { setTextFilter } from './actions/filters';
 
+import './firebase/firebase';
+
 const store = configureStore();
 
 /* store.subscribe(()=> {
